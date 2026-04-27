@@ -1,23 +1,35 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/p4udQv-V)
-# [Enter Your Project Name] - Build with AI Hackathon 2026
-**Team Name:** [Insert from Registration]
-**Team Members:** [Member 1, Member 2, Member 3]
+# StackPulse 🔍
+> A personalized AI radar that monitors your specific tech stack and tells you the 1–2 things worth acting on this week.
 
-## 1. Project Overview
-Provide a 2-3 sentence summary of the problem you are solving and your AI-powered solution.
+## How We Used Google AI
+- **Gemini 1.5 Pro (Vertex AI):** Relevance scoring engine — scores every ingested item against the user's declared stack across 3 dimensions: stack relevance, cost impact, action urgency
+- **Gemini API:** Digest generation, cost impact calculation, and conversational chat ("Ask Pulse")
+- **Firebase Firestore:** Real-time storage for stacks, scored items, and digests
+- **Google Cloud Run:** Hosts both frontend and backend
+- **Cloud Scheduler:** Triggers ingestion worker every 6 hours
 
-## 2. Google AI Tech Stack Implementation
-Explain how your team utilized the following mandatory technologies:
-* **Google AI Studio / Vertex AI:** Which models (like Gemini) did you use, and what was the specific implementation?
-* **Hosting & Backend:** Did you use Google Cloud Run or Firebase Studio for deployment?
-* **Integration:** How does your solution connect these Google tools to solve the problem?
+## Tech Stack
+- Frontend: Next.js 14, Tailwind CSS, shadcn/ui → Cloud Run
+- Backend: FastAPI (Python) → Cloud Run
+- AI: Gemini 1.5 Pro via google-generativeai SDK
+- DB: Firebase Firestore
+- Ingestion: RSS feeds, GitHub Releases API, HN Algolia API
 
-## 3. Innovation & Impact
-Why is your project unique compared to existing AI solutions? What is its real-world potential? [3]
+## Installation
+### Prerequisites
+- Node.js 18+, Python 3.11+, Firebase project, GCP project with Vertex AI enabled
 
-## 4. Setup & Installation
-Provide the steps for the judge to run your project locally or view the live demo:
-1. Clone this repository.
-2. Install dependencies: `pip install -r requirements.txt`.
-3. Set up your API keys in a `.env` file.
-4. Run: `python main.py`.
+### Frontend
+cd frontend && npm install && NEXT_PUBLIC_API_URL=http://localhost:8000 npm run dev
+
+### Backend
+cd backend && pip install -r requirements.txt && uvicorn main:app --reload
+
+### AI Module
+cd ai && pip install -r requirements.txt
+
+## Live Demo
+[URL will be added after Cloud Run deployment]
+
+## Team
+Built at Build with AI Hackathon 2026 — GDG on Campus, FAST NUCES CFD
