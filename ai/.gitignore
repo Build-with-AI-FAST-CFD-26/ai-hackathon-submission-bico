@@ -1,0 +1,9 @@
+# Python venv — never commit
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Environment secrets — never commit
+.env
